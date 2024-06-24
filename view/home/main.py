@@ -28,7 +28,7 @@ class HomeView:
     @staticmethod
     def wakeup_components():
         with st_lottie_spinner(animation_source=PROCESSING_LOTTIE, height=200):
-            time.sleep(1)
+            time.sleep(2)
             StatesSState.set(state=States.DETECTE_FACES1)
 
     @classmethod
