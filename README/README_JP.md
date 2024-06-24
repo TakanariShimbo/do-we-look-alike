@@ -7,6 +7,8 @@ README | [English](/README/README_EN.md) | [日本語](/README/README_JP.md)
 
 [![QR-Code of WebSite](/data/QRCode.png)](https://do-we-look-alike.streamlit.app/)
 
+このアプリでは、[InsightFace](https://github.com/deepinsight/insightface) を利用しています。
+
 ## 🐋Docker
 
 - 前提：docker がインストール済み

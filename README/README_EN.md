@@ -7,6 +7,8 @@ You can access the website by clicking or scanning the QR code below.
 
 [![QR-Code of WebSite](/data/QRCode.png)](https://do-we-look-alike.streamlit.app/)
 
+This application is powered by [InsightFace](https://github.com/deepinsight/insightface).
+
 ## 🐋Docker
 
 - docker is required
