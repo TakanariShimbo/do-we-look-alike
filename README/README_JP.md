@@ -3,7 +3,7 @@ README | [English](/README/README_EN.md) | [日本語](/README/README_JP.md)
 ## 🚀 はじめに
 
 「私たちって似てる？」のリポジトリです。  
-以下の QR コードをスキャン、あるいはクリックするとウェブサイトにアクセスできます。
+以下の QR コードをスキャン、あるいはクリックすると、ウェブサイトにアクセスできます。
 
 [![QR-Code of WebSite](/data/QRCode.png)](https://do-we-look-alike.streamlit.app/)
 
