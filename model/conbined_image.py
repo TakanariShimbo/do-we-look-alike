@@ -35,31 +35,36 @@ class ConbinedImage:
         logo_icon_image_rgba = self._get_logo_image()
         logo_text_image_rgba = self._get_text_image(text=logo_text, text_color=text_color)
 
-        left_image = self._resize(image=image_rgba_1, max_size=max_size_l)
-        right_image = self._resize(image=image_rgba_2, max_size=max_size_r)
+        left_image = self._resize(image=image_rgba_1, max_size=max_size_l, margin=margin)
+        right_image = self._resize(image=image_rgba_2, max_size=max_size_r, margin=margin)
         middle_image = self._resize(image=heart_image_rgba, max_size=size_m)
         logo_icon_image = self._resize(image=logo_icon_image_rgba, max_size=max_size_logo, margin=margin // 5)
         logo_text_image = self._resize(image=logo_text_image_rgba, max_size=max_size_logo, margin=margin // 5)
 
-        pasted_image = Image.new(mode="RGBA", size=max_size.tuple)
-        pasted_image.paste(
+        conbined_image = Image.new(mode="RGBA", size=max_size.tuple, color=bg_color)
+        conbined_image.paste(
             im=left_image,
             box=((max_size_l.w - left_image.width) // 2, (max_size_l.h - left_image.height) // 2),
         )
-        pasted_image.paste(
+        conbined_image.paste(
             im=middle_image,
             box=((max_size_m.w - middle_image.width) // 2 + max_size_l.w, (max_size_m.h - middle_image.height) // 2),
+            mask=middle_image,
         )
-        pasted_image.paste(
+        conbined_image.paste(
             im=right_image,
             box=((max_size_r.w - right_image.width) // 2 + max_size_l.w + max_size_m.w, (max_size_r.h - right_image.height) // 2),
         )
-        pasted_image = self._resize(image=pasted_image, max_size=max_size, margin=margin)
-
-        conbined_image = Image.new(mode="RGBA", size=max_size.tuple, color=bg_color)
-        conbined_image.paste(im=pasted_image, box=(margin // 2, margin // 2))
-        conbined_image.paste(im=logo_icon_image, box=(margin // 2, max_size.h - margin // 2 + margin // 10))
-        conbined_image.paste(im=logo_text_image, box=(margin // 2 + logo_icon_image.width, max_size.h - margin // 2 + margin // 10))
+        conbined_image.paste(
+            im=logo_icon_image,
+            box=(margin // 2, max_size.h - margin // 2 + margin // 10),
+            mask=logo_icon_image,
+        )
+        conbined_image.paste(
+            im=logo_text_image,
+            box=(margin // 2 + logo_icon_image.width, max_size.h - margin // 2 + margin // 10),
+            mask=logo_text_image,
+        )
         self._image = conbined_image
 
     @property
