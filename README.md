@@ -30,7 +30,7 @@ conda activate do_we_look_alike
 pip install -r requirements.txt
 ```
 
-### Deploy server
+### Build server
 
 ```bash
 # Please activate venv before executing it.
