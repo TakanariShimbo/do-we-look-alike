@@ -51,7 +51,7 @@ class HomeView:
             """
             <style>
             .stProgress .st-bo {
-                background-color: "#e0aaa0";
+                background-color: "#e98b7a";
             }
             </style>
             """,
