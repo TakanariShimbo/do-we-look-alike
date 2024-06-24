@@ -3,7 +3,7 @@ README | [English](/README/README_EN.md) | [日本語](/README/README_JP.md)
 ## 🚀About
 
 This is repository of "Do We Look A Like?".  
-Please click or scan the bellow QR-Code to access web site.
+You can access the website by clicking or scanning the QR code below.
 
 [![QR-Code of WebSite](/data/QRCode.png)](https://do-we-look-alike.streamlit.app/)
 
