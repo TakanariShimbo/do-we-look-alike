@@ -7,6 +7,24 @@ You can access the website by clicking or scanning the QR code below.
 
 [![QR-Code of WebSite](/data/QRCode.png)](https://do-we-look-alike.streamlit.app/)
 
+## 🐋Docker
+
+- docker is required
+
+### Build server
+
+```bash
+# Please set the .env file before executing it.
+docker compose up -d
+```
+
+### Build image
+
+```bash
+# Please change the username and tag correctly.
+docker build -t takanarishimbo/do-we-look-alike:v1.0.0 .
+```
+
 ## 🐍Conda
 
 - conda or miniconda is required

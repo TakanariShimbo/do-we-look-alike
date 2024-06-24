@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  web-service:
+    container_name: do-we-look-alike-container
+
+    image: takanarishimbo/do-we-look-alike:v1.0.0
+
+    ports:
+      - "${SERVER_PORT}:8501"
+
+    command: streamlit run server.py
+
+    restart: always

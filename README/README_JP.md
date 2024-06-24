@@ -7,6 +7,24 @@ README | [English](/README/README_EN.md) | [日本語](/README/README_JP.md)
 
 [![QR-Code of WebSite](/data/QRCode.png)](https://do-we-look-alike.streamlit.app/)
 
+## 🐋Docker
+
+- 前提：docker がインストール済み
+
+### サーバーの立ち上げ
+
+```bash
+# 実行する前に .env を設定する
+docker compose up -d
+```
+
+### Build image
+
+```bash
+# ユーザー名、タグは適切に設定する
+docker build -t takanarishimbo/do-we-look-alike:v1.0.0 .
+```
+
 ## 🐍Conda
 
 - 前提：conda あるいは miniconda がインストール済み
@@ -26,13 +44,13 @@ conda activate do_we_look_alike
 ### ライブラリのインストール
 
 ```bash
-# 以下のコマンドを実行する前に仮想環境を有効化されていることを確認
+# 実行する前に仮想環境を有効化する
 pip install -r requirements.txt
 ```
 
 ### サーバーの立ち上げ
 
 ```bash
-# 以下のコマンドを実行する前に仮想環境を有効化されていることを確認
+# 実行する前に仮想環境を有効化する
 streamlit run server.py
 ```
