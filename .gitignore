@@ -2,3 +2,7 @@ test.py
 __pycache__
 .env
 insight_face_models
+nginx/certificate.cnf
+nginx/private-key.key
+nginx/certificate-request.csr
+nginx/certificate.crt

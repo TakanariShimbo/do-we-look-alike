@@ -13,18 +13,34 @@ README | [English](/README/README_EN.md) | [日本語](/README/README_JP.md)
 
 - 前提：docker がインストール済み
 
+### イメージのビルド
+
+```bash
+# ユーザー名、タグは適切に設定する
+docker build -t takanarishimbo/do-we-look-alike:v1.0.0 .
+```
+
+### 自己証明書の発行
+
+```sh
+cd nginx
+
+# generate private-key
+openssl genpkey -out private-key.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+
+# generate certificate-request
+# please set the certificate.cnf file before executing it.
+openssl req -new -key private-key.key -out certificate-request.csr -config certificate.cnf
+
+# generate certificate
+openssl x509 -req -in certificate-request.csr -signkey private-key.key -out certificate.crt -days 3650 -extfile certificate.cnf -extensions v3_ca
+```
+
 ### サーバーの立ち上げ
 
 ```bash
 # 実行する前に .env を設定する
 docker compose up -d
-```
-
-### Build image
-
-```bash
-# ユーザー名、タグは適切に設定する
-docker build -t takanarishimbo/do-we-look-alike:v1.0.0 .
 ```
 
 ## 🐍Conda

@@ -1,3 +1,6 @@
+[server]
+enableCORS = false
+
 [runner]
 magicEnabled = false
 

@@ -1,14 +1,22 @@
 version: "3.8"
 
 services:
-  web-service:
+  streamlit-service:
     container_name: do-we-look-alike-container
-
     image: takanarishimbo/do-we-look-alike:v1.0.0
-
-    ports:
-      - "${SERVER_PORT}:8501"
-
     command: streamlit run server.py
+    restart: always
 
+  nginx-service:
+    container_name: nginx-container
+    image: nginx:alpine3.19
+    ports:
+      - "${HTTPS_PORT}:443"
+      # - "${HTTP_PORT}:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/certificate.crt:/etc/nginx/certs/certificate.crt
+      - ./nginx/private-key.key:/etc/nginx/certs/private-key.key
+    depends_on:
+      - streamlit-service
     restart: always
