@@ -6,6 +6,7 @@ RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /work
 COPY . /work
+RUN rm -rf /work/eginx
 
 RUN pip install --no-cache-dir -r requirements.txt
 
